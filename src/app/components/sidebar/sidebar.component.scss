@@ -1,0 +1,69 @@
+.sidebar {
+  width: 200px;
+  background: #fcfcfc;
+  padding: 10px 20px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  height: 100vh;
+
+  .title {
+    font-size: 42px;
+    padding: 0 20px;
+    background: -webkit-linear-gradient(rgb(107, 107, 248), rgb(134, 196, 247));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background-color: #92979d;
+    margin-top: 20px;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 40px;
+
+    .selected {
+      background-color: #efefef;
+      color: black;
+      box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.308);
+    }
+
+    .link {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      cursor: pointer;
+      transition: all .4s;
+      border-radius: 12px;
+      padding: 10px 20px;
+
+      &:hover {
+        background-color: #efefef;
+        color: black;
+        box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.308);
+      }
+
+      fa-icon {
+        font-size: 25px;
+        color: #92979d;
+
+      }
+
+      a {
+        text-transform: capitalize;
+        font-size: 18px;
+        color: #92979d;
+        text-decoration: none;
+      }
+    }
+
+  }
+
+}

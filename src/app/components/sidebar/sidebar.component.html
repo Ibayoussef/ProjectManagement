@@ -1,0 +1,16 @@
+<div class="sidebar">
+  <h1 class="title">Flexia</h1>
+
+  <div class="links">
+    <div
+      *ngFor="let item of routers"
+      routerLink="{{ item.path }}"
+      routerLinkActive="selected"
+      class="link"
+    >
+      <fa-icon [icon]="item.icon"></fa-icon>
+      <a>{{ item.path }}</a>
+    </div>
+  </div>
+  <div class="divider"></div>
+</div>

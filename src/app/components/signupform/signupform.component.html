@@ -1,0 +1,30 @@
+<div class="login-card">
+  <h1 class="title">FLEXIA</h1>
+  <div class="title-wrapper">
+    <h2>Sign up to Flexia</h2>
+    <p>Enter your details below</p>
+  </div>
+  <form class="form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <input
+      type="text"
+      placeholder="Enter Email Here...."
+      [(ngModel)]="user.email"
+      name="email"
+      require
+    />
+    <input
+      type="text"
+      placeholder="Enter Password Here...."
+      [(ngModel)]="user.password"
+      name="password"
+      require
+    />
+    <div class="errors-wrapper" *ngIf="errors$ | async as errors">
+      <div class="errors-flex" *ngFor="let item of errors">
+        <p class="error">{{ item.description }}</p>
+      </div>
+    </div>
+    <button type="submit">Signup</button>
+    <p>Already have an account? <a routerLink="/login">Log in</a></p>
+  </form>
+</div>
