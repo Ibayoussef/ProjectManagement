@@ -1,13 +1,17 @@
 <div class="searchbar">
   <div class="input-container">
     <fa-icon [icon]="faSearch"></fa-icon>
-    <input type="text" />
+    <input type="text" placeholder="Search for projects..." />
   </div>
 
-  <div class="avatar">
+  <div id="logoutcontainer" class="avatar">
     <img
+      (click)="openModal()"
       src="https://img.freepik.com/free-photo/handsome-man-smiling-happy-face-portrait-close-up_53876-139608.jpg?w=2000"
       alt=""
     />
+    <div *ngIf="logoutopen" class="logout-wrapper">
+      <p (click)="logout()">Logout</p>
+    </div>
   </div>
 </div>

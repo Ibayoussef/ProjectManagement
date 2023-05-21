@@ -5,6 +5,7 @@ import {
   loginFailure,
   loginRequest,
   loginSuccess,
+  logout,
   signupFailure,
   signupRequest,
   signupSuccess,
@@ -51,6 +52,14 @@ export class AuthService {
       ),
     { dispatch: false }
   );
+  logout$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(logout),
+        tap(() => this.router.navigate(['/login']))
+      ),
+    { dispatch: false }
+  );
 
   constructor(
     private authHttpService: AuthHttpService,
@@ -64,5 +73,8 @@ export class AuthService {
   }
   signup(email: string, password: string) {
     this.store.dispatch(signupRequest({ email, password }));
+  }
+  logout() {
+    this.store.dispatch(logout());
   }
 }

@@ -18,9 +18,16 @@ import { SignupformComponent } from './components/signupform/signupform.componen
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { ProjectcardComponent } from './components/projectcard/projectcard.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
+import { ProjectService } from './state/effects/projects.effect';
+import { projectsReducer } from './state/reducers/projects.reducer';
+import { KanbanboardComponent } from './components/kanbanboard/kanbanboard.component';
+import { BoardComponent } from './pages/board/board.component';
 
 @NgModule({
   declarations: [
+    ProjectsComponent,
     DashboardComponent,
     AppComponent,
     LoginformComponent,
@@ -29,14 +36,17 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
     SignupformComponent,
     SidebarComponent,
     SearchbarComponent,
+    ProjectcardComponent,
+    KanbanboardComponent,
+    BoardComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({ user: userReducer }),
-    EffectsModule.forRoot([AuthService]),
+    StoreModule.forRoot({ user: userReducer, projects: projectsReducer }),
+    EffectsModule.forRoot([AuthService, ProjectService]),
     FontAwesomeModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
@@ -50,7 +60,7 @@ import { SearchbarComponent } from './components/searchbar/searchbar.component';
     }),
     BrowserAnimationsModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, ProjectService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

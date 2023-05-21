@@ -1,1 +1,9 @@
-<div class="projects-wrapper">projects works!</div>
+<div class="projects-wrapper">
+  <h4>List of projects</h4>
+  <div class="projects-grid">
+    <app-projectcard
+      [projects]="projects"
+      *ngIf="projects$ | async as projects"
+    ></app-projectcard>
+  </div>
+</div>

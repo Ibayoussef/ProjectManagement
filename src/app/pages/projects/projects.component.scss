@@ -1,4 +1,22 @@
 .projects-wrapper {
   width: 100%;
+  padding: 40px 40px;
+  background-color: #f4f4f4;
+  height: 100vh;
+  overflow: scroll;
 
+  h4 {
+    color: #92979d;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  app-projectcard {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
 }
