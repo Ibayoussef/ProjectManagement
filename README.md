@@ -4,13 +4,13 @@ My Project Manager is a mini SaaS web application that allows users to manage pr
 
 # Backend Repo
 
-Created with .NET Framework [link:https://github.com/Ibayoussef/ProjecManagerApi](`https://github.com/Ibayoussef/ProjecManagerApi`)
+Created with .NET Framework [https://github.com/Ibayoussef/ProjecManagerApi](https://github.com/Ibayoussef/ProjecManagerApi)
 
 # Thoughts
 
 ## UI/UX
 
-inspired by [link:https://www.behance.net/gallery/153992141/project-management-dashboard](`https://www.behance.net/gallery/153992141/project-management-dashboard`)
+inspired by [https://www.behance.net/gallery/153992141/project-management-dashboard](https://www.behance.net/gallery/153992141/project-management-dashboard)
 
 ## Dev
 
