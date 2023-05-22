@@ -2,6 +2,10 @@
 
 My Project Manager is a mini SaaS web application that allows users to manage projects and their tasks.
 
+# Video
+
+[https://www.loom.com/share/191ed5b621b6424fbff9dea3d8cbd93d](https://www.loom.com/share/191ed5b621b6424fbff9dea3d8cbd93d)
+
 # Backend Repo
 
 Created with .NET Framework [https://github.com/Ibayoussef/ProjecManagerApi](https://github.com/Ibayoussef/ProjecManagerApi)
