@@ -1,4 +1,4 @@
 <div class="board-wrapper">
   <h4>Kanban Board</h4>
-  <app-kanbanboard />
+  <app-kanbanboard [data]="kanbanData" *ngIf="tasks$ | async as tasks" />
 </div>

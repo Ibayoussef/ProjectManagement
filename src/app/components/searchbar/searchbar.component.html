@@ -1,7 +1,12 @@
 <div class="searchbar">
   <div class="input-container">
     <fa-icon [icon]="faSearch"></fa-icon>
-    <input type="text" placeholder="Search for projects..." />
+    <input
+      type="text"
+      placeholder="Search for projects..."
+      [(ngModel)]="searchQuery"
+      (change)="onSearchChange()"
+    />
   </div>
 
   <div id="logoutcontainer" class="avatar">

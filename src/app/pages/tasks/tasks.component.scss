@@ -5,10 +5,23 @@
   height: 100vh;
   overflow: hidden;
 
+  .flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   h4 {
     color: #92979d;
     font-weight: 400;
     font-size: 16px;
+  }
+
+  app-taskcard {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .tasks-grid {
@@ -20,7 +33,7 @@
     .tasks-list,
     .task-details {
       background-color: #fcfcfc;
-      padding: 10px 20px;
+      padding: 30px 20px;
       border-radius: 12px;
     }
 

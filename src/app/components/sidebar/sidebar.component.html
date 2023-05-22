@@ -13,8 +13,9 @@
     </div>
     <div class="divider"></div>
   </div>
+  <app-modal *ngIf="openModal" [handleModal]="handleModal" />
   <div class="button-wrapper">
-    <button>
+    <button (click)="handleModal()">
       <span>+</span>
       <p>New Project</p>
     </button>

@@ -1,0 +1,32 @@
+<div class="filters">
+  <div class="input-container">
+    <fa-icon [icon]="faSearch"></fa-icon>
+    <input
+      type="text"
+      placeholder="Search for tasks..."
+      [(ngModel)]="filters.query"
+      (change)="onSearchChange()"
+    />
+  </div>
+  <select
+    name="assignee"
+    *ngIf="users$ | async as users"
+    [(ngModel)]="filters.assignee"
+    (change)="onSearchChange()"
+  >
+    <option *ngFor="let user of users">{{ user.email }}</option>
+  </select>
+  <select
+    name="status"
+    [(ngModel)]="filters.status"
+    (change)="onSearchChange()"
+  >
+    <option>ToDo</option>
+    <option>In Progress</option>
+    <option>Testing</option>
+    <option>Close</option>
+  </select>
+  <app-modal *ngIf="openModal" [handleModal]="handleModal" [ticket]="ticket" />
+  <button (click)="resetFilters()">Reset Filters</button>
+  <button (click)="handleModal()">Create Ticket</button>
+</div>

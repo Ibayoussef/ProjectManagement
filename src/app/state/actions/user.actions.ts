@@ -20,5 +20,12 @@ export const signupFailure = createAction(
   '[User Component] Signup Request',
   props<{ errors: any }>()
 );
+export const fetchUsersRequest = createAction(
+  '[User Component] Fetch Users Request'
+);
+export const fetchUsersSuccess = createAction(
+  '[User Component] Fetch Users Success',
+  props<{ users: any }>()
+);
 export const signupSuccess = createAction('[User Component] Signup Request');
 export const logout = createAction('[User Component] Logout');

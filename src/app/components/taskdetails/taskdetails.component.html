@@ -1,0 +1,39 @@
+<div class="task-details" *ngIf="task$ | async as task">
+  <h1>{{ task.title }}</h1>
+  <div class="status">
+    <p>{{ task.status }}</p>
+  </div>
+  <div class="info">
+    <p>Priority</p>
+    <select name="priority" [(ngModel)]="priorityValue" (change)="editPrio()">
+      <option>high</option>
+      <option>medium</option>
+      <option>low</option>
+    </select>
+  </div>
+  <div class="info">
+    <p>Type</p>
+    <select name="type" [(ngModel)]="typeValue" (change)="editType()">
+      <option>task</option>
+      <option>bug</option>
+      <option>Improvement</option>
+      <option>story</option>
+    </select>
+  </div>
+  <div class="info" *ngIf="users$ | async as users">
+    <p>Assignee</p>
+    <select
+      name="assignee"
+      [(ngModel)]="assigneeValue"
+      (change)="editAssignee()"
+    >
+      <option>{{ task.assignee }}</option>
+      <option *ngFor="let user of users">{{ user.email }}</option>
+    </select>
+  </div>
+  <div class="info">
+    <p>Tags</p>
+    <p>{{ task.tags }}</p>
+  </div>
+  <p>{{ task.description }}</p>
+</div>

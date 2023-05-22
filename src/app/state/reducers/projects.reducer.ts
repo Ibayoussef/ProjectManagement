@@ -3,6 +3,7 @@ import {
   fetchProjectSuccess,
   fetchProjectsSuccess,
   fetchFailure,
+  searchProjectsSuccess,
 } from '../actions/projects.actions';
 import { Project } from 'src/app/interfaces';
 export const initialState: {
@@ -19,6 +20,10 @@ export const projectsReducer = createReducer(
   initialState,
   on(fetchFailure, (state, { errors }) => ({ ...state, errors })),
   on(fetchProjectsSuccess, (state, { projects }) => ({
+    ...state,
+    projects: projects,
+  })),
+  on(searchProjectsSuccess, (state, { projects }) => ({
     ...state,
     projects: projects,
   })),

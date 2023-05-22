@@ -1,0 +1,80 @@
+<div class="modal-wrapper">
+  <div class="modal">
+    <div class="flex">
+      <h1 *ngIf="!ticket">Create a new project:</h1>
+      <h1 *ngIf="ticket">Create a new task:</h1>
+      <fa-icon [icon]="faClose" (click)="handleModal()" />
+    </div>
+    <form (ngSubmit)="handleCreate()" *ngIf="!ticket" #ProjectForm="ngForm">
+      <div class="flex-col">
+        <h4>Project Name:</h4>
+        <input type="text" name="name" [(ngModel)]="projectData.name" />
+      </div>
+      <div class="flex-col">
+        <h4>Project Description:</h4>
+        <input
+          type="text"
+          name="description"
+          [(ngModel)]="projectData.description"
+        />
+      </div>
+      <div class="button-wrapper">
+        <button type="submit">Create</button>
+      </div>
+    </form>
+    <form (ngSubmit)="handleCreateTicket()" *ngIf="ticket" #TaskFormm="ngForm">
+      <div class="flex-col">
+        <h4>Task Title:</h4>
+        <input type="text" name="name" [(ngModel)]="taskData.title" />
+      </div>
+      <div class="flex-col">
+        <h4>Task Description:</h4>
+        <textarea
+          type="text"
+          name="description"
+          [(ngModel)]="taskData.description"
+        ></textarea>
+      </div>
+      <div class="flex-col">
+        <h4>Task Assignee:</h4>
+        <select
+          name="assignee"
+          *ngIf="users$ | async as users"
+          [(ngModel)]="taskData.assignee"
+        >
+          <option *ngFor="let user of users">{{ user.email }}</option>
+        </select>
+      </div>
+      <div class="flex-col">
+        <h4>Task Priority:</h4>
+        <select name="priority" [(ngModel)]="taskData.priority">
+          <option>high</option>
+          <option>medium</option>
+          <option>low</option>
+        </select>
+      </div>
+      <div class="flex-col">
+        <h4>Task Type:</h4>
+        <select name="type" [(ngModel)]="taskData.taskType">
+          <option>task</option>
+          <option>bug</option>
+          <option>Improvement</option>
+          <option>story</option>
+        </select>
+      </div>
+      <div class="flex-col">
+        <h4>Task Project:</h4>
+        <select
+          name="projects"
+          [(ngModel)]="taskData.projectId"
+          *ngIf="projects$ | async as projects"
+        >
+          <option *ngFor="let project of projects">{{ project.id }}</option>
+        </select>
+      </div>
+      <div class="button-wrapper">
+        <button type="submit">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

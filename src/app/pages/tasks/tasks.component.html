@@ -1,7 +1,21 @@
 <div class="tasks-wrapper">
-  <h4>List of Tasks</h4>
+  <div class="flex">
+    <h4>List of Tasks</h4>
+    <app-filters />
+  </div>
+
   <div class="tasks-grid">
-    <div class="tasks-list">hello</div>
-    <div class="task-details">hoo</div>
+    <div class="tasks-list" *ngIf="tasks$ | async as tasks">
+      <app-taskcard [tasks]="tasks" />
+      <div class="div nodata" *ngIf="tasks.length === 0">
+        <p>No Data From Your Search</p>
+      </div>
+    </div>
+    <div class="task-details" *ngIf="tasks$ | async as tasks">
+      <app-taskdetails [tasks]="tasks" />
+      <div class="div nodata" *ngIf="tasks.length === 0">
+        <p>No Data From Your Search</p>
+      </div>
+    </div>
   </div>
 </div>

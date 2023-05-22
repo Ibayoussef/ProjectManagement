@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/interfaces';
+import { NotificationService } from 'src/app/services/notifications.service';
 import { AuthService } from 'src/app/state/effects/user.effect';
 @Component({
   selector: 'app-loginform',

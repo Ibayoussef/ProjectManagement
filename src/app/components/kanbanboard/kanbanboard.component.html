@@ -1,1 +1,13 @@
-<p>kanbanboard works!</p>
+<ejs-kanban
+  keyField="status"
+  [dataSource]="data"
+  [cardSettings]="cardSettings"
+  (dataSourceChanged)="dataSourceChanged($event)"
+>
+  <e-columns>
+    <e-column headerText="To do" keyField="ToDo"></e-column>
+    <e-column headerText="In Progress" keyField="In Progress"></e-column>
+    <e-column headerText="Testing" keyField="Testing"></e-column>
+    <e-column headerText="Done" keyField="Close"></e-column>
+  </e-columns>
+</ejs-kanban>

@@ -9,7 +9,7 @@ export class AuthHttpService {
 
   loginService(email: string, password: string) {
     return this.http.post<{ token: string }>(
-      'https://localhost:7187/api/Auth/Login',
+      'http://localhost:5071/api/Auth/Login',
       {
         email: email,
         password: password,
@@ -17,9 +17,12 @@ export class AuthHttpService {
     );
   }
   signupService(email: string, password: string) {
-    return this.http.post<any>('https://localhost:7187/api/Auth/Register', {
+    return this.http.post<any>('http://localhost:5071/api/Auth/Register', {
       email: email,
       password: password,
     });
+  }
+  fetchUsersService() {
+    return this.http.get<any>('http://localhost:5071/api/Auth/Users');
   }
 }

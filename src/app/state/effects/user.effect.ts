@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import {
+  fetchUsersRequest,
+  fetchUsersSuccess,
   loginFailure,
   loginRequest,
   loginSuccess,
@@ -11,8 +13,9 @@ import {
   signupSuccess,
 } from '../actions/user.actions';
 import { exhaustMap, map, catchError, tap } from 'rxjs/operators';
-import { AuthHttpService } from 'src/app/services/authServices';
+import { AuthHttpService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notifications.service';
 
 @Injectable()
 export class AuthService {
@@ -21,7 +24,9 @@ export class AuthService {
       ofType(loginRequest),
       exhaustMap((action) =>
         this.authHttpService.loginService(action.email, action.password).pipe(
-          map(({ token }) => loginSuccess({ token: token })),
+          map(({ token }) => {
+            return loginSuccess({ token: token });
+          }),
           catchError(async (error) => loginFailure({ errors: error.message }))
         )
       )
@@ -35,10 +40,33 @@ export class AuthService {
           map(() => {
             return signupSuccess();
           }),
+          tap(() =>
+            this.notifyService.showSuccess(
+              'Account Created Successfully !!',
+              ''
+            )
+          ),
           tap(() => this.router.navigate(['/login'])),
-          catchError(async (error) =>
-            signupFailure({ errors: error?.error?.$values })
-          )
+          catchError(async (error) => {
+            this.notifyService.showError('Account Creation Failed !!', '');
+            return signupFailure({ errors: error?.error?.$values });
+          })
+        )
+      )
+    )
+  );
+
+  fetchUsers$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(fetchUsersRequest),
+      exhaustMap(() =>
+        this.authHttpService.fetchUsersService().pipe(
+          map((res) => {
+            return fetchUsersSuccess({ users: res.$values });
+          }),
+          catchError(async (error) => {
+            return signupFailure({ errors: error?.error?.$values });
+          })
         )
       )
     )
@@ -48,6 +76,9 @@ export class AuthService {
     () =>
       this.actions$.pipe(
         ofType(loginSuccess),
+        tap(() =>
+          this.notifyService.showSuccess('Logged In Successfully !!', '')
+        ),
         tap(() => this.router.navigate(['/dashboard/projects']))
       ),
     { dispatch: false }
@@ -62,6 +93,7 @@ export class AuthService {
   );
 
   constructor(
+    private notifyService: NotificationService,
     private authHttpService: AuthHttpService,
     private actions$: Actions,
     private store: Store,
@@ -76,5 +108,8 @@ export class AuthService {
   }
   logout() {
     this.store.dispatch(logout());
+  }
+  fetchUsers() {
+    this.store.dispatch(fetchUsersRequest());
   }
 }

@@ -1,0 +1,64 @@
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  .input-container {
+    position: relative;
+    width: fit-content;
+
+    fa-icon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+    }
+
+    input,
+    select {
+      border-radius: 12px;
+      height: 30px;
+      width: 200px;
+      border: 1px solid rgba(128, 128, 128, 0.438);
+
+      padding-left: 30px;
+      font-size: 16px;
+
+      &:focus {
+        outline: 1px solid rgb(107, 107, 248);
+      }
+    }
+  }
+
+  select {
+    border-radius: 12px;
+    height: 30px;
+
+    border: 1px solid rgba(128, 128, 128, 0.438);
+
+    padding-left: 10px;
+    font-size: 16px;
+
+    &:focus {
+      outline: 1px solid rgb(107, 107, 248);
+    }
+  }
+
+  button {
+    background-color: rgb(107, 107, 248);
+    border: none;
+    color: white;
+    border-radius: 12px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+
+    transition: all .4s;
+
+    &:hover {
+      background-color: rgba(107, 107, 248, 0.733);
+    }
+  }
+}

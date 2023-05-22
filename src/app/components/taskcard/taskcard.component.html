@@ -1,0 +1,13 @@
+<div *ngFor="let task of tasks" (click)="fetchTask(task.id)" class="card">
+  <h4>{{ task.title }}</h4>
+  <p>{{ task.summary + "..." }}</p>
+  <div class="flex">
+    <div class="status">{{ task.status }}</div>
+    <div class="img-container">
+      <img
+        src="https://img.freepik.com/free-photo/handsome-man-smiling-happy-face-portrait-close-up_53876-139608.jpg?w=2000"
+        alt=""
+      />
+    </div>
+  </div>
+</div>

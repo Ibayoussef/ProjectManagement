@@ -1,4 +1,69 @@
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-dropdowns/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-layouts/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-angular-kanban/styles/material.css';
+@import 'ngx-toastr/toastr';
+
+.e-kanban .e-card-footer-css {
+  align-self: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+}
+
+.e-kanban .e-improvement {
+  background-image: url(https://syncfusion.atlassian.net/secure/viewavatar?size=medium&avatarId=15507&avatarType=issuetype);
+}
+
+.e-kanban .e-story {
+  background-image: url(https://syncfusion.atlassian.net/secure/viewavatar?size=medium&avatarId=15515&avatarType=issuetype);
+}
+
+.e-kanban .e-epic {
+  background-image: url(https://syncfusion.atlassian.net/secure/viewavatar?size=medium&avatarId=15507&avatarType=issuetype);
+}
+
+.e-kanban .e-bug {
+  background-image: url(https://syncfusion.atlassian.net/secure/viewavatar?size=medium&avatarId=15503&avatarType=issuetype);
+}
+
+.e-kanban .e-others {
+  background-image: url(https://syncfusion.atlassian.net/images/icons/issuetypes/documentation.png);
+}
+
+.e-kanban .e-low {
+  margin-right: auto;
+  background-image: url(https://syncfusion.atlassian.net/images/icons/priorities/trivial.svg);
+}
+
+.e-kanban .e-high {
+  margin-right: auto;
+  background-image: url(https://syncfusion.atlassian.net/images/icons/priorities/major.svg);
+}
+
+.e-kanban .e-critical {
+  margin-right: auto;
+  background-image: url(https://syncfusion.atlassian.net/images/icons/priorities/critical.svg);
+}
+
+.e-kanban .e-release {
+  margin-right: auto;
+  background-image: url(https://syncfusion.atlassian.net/images/icons/priorities/critical.svg);
+}
+
+.e-kanban .e-normal {
+  margin-right: auto;
+  background-image: url(https://syncfusion.atlassian.net/images/icons/priorities/minor.svg);
+}
 
 html,
 body {
@@ -14,8 +79,40 @@ body {
 body {
   overflow: hidden;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+
+
 }
 
 app-dashboard {
   width: 100%;
+}
+
+.e-kanban {
+  background: #f4f4f4 !important;
+  margin-top: 20px !important;
+
+  .e-kanban-header .e-header-cells {
+    background: rgba(107, 107, 248, 0.733) !important;
+
+    .e-header-text {
+      color: white !important;
+    }
+
+    .e-item-count {
+      color: white !important;
+    }
+  }
+
+  .e-card {
+    box-shadow: 2px 3px 9px -4px rgba(0, 0, 0, 0.79) !important;
+    transition: all .4s;
+
+    &:hover {
+      transform: rotate(1deg);
+    }
+  }
+
+  td {
+    background: #fcfcfc !important;
+  }
 }

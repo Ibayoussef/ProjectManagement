@@ -12,6 +12,7 @@ import {
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
+  openModal = false;
   currentIcon = (icon: string) => {
     switch (icon) {
       case 'projects':
@@ -35,4 +36,5 @@ export class SidebarComponent {
       icon: this.currentIcon(route.path),
     };
   });
+  handleModal = () => (this.openModal = !this.openModal);
 }

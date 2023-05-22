@@ -1,9 +1,11 @@
 <div class="projects-wrapper">
   <h4>List of projects</h4>
-  <div class="projects-grid">
+
+  <div class="projects-grid" *ngIf="projects$ | async as projects">
     <app-projectcard
-      [projects]="projects"
-      *ngIf="projects$ | async as projects"
+      [project]="project"
+      *ngFor="let project of projects"
+      [tasks]="getTasksForProject(project.id)"
     ></app-projectcard>
   </div>
 </div>

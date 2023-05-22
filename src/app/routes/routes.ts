@@ -22,7 +22,6 @@ export const appRoutes = [
       { path: 'projects', component: ProjectsComponent },
       { path: 'tasks', component: TasksComponent },
       { path: 'board', component: BoardComponent },
-      { path: 'progress', component: TasksComponent },
     ],
     canActivate: [AuthGuard],
   },

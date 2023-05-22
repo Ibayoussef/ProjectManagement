@@ -24,7 +24,21 @@ import { ProjectService } from './state/effects/projects.effect';
 import { projectsReducer } from './state/reducers/projects.reducer';
 import { KanbanboardComponent } from './components/kanbanboard/kanbanboard.component';
 import { BoardComponent } from './pages/board/board.component';
+import { tasksReducer } from './state/reducers/tasks.reducer';
+import { TaskcardComponent } from './components/taskcard/taskcard.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
+import { TasksService } from './state/effects/tasks.effect';
+import { TaskdetailsComponent } from './components/taskdetails/taskdetails.component';
+import { KanbanModule } from '@syncfusion/ej2-angular-kanban';
+import { ToastrModule } from 'ngx-toastr';
+import { ProgressComponent } from './pages/progress/progress.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { FiltersComponent } from './components/filters/filters.component';
 
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 @NgModule({
   declarations: [
     ProjectsComponent,
@@ -39,14 +53,33 @@ import { BoardComponent } from './pages/board/board.component';
     ProjectcardComponent,
     KanbanboardComponent,
     BoardComponent,
+    TaskcardComponent,
+    TasksComponent,
+    TaskdetailsComponent,
+    ProgressComponent,
+    ModalComponent,
+    FiltersComponent,
   ],
   imports: [
     HttpClientModule,
+    KanbanModule,
+    ToastrModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:5071'],
+        disallowedRoutes: [],
+      },
+    }),
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    StoreModule.forRoot({ user: userReducer, projects: projectsReducer }),
-    EffectsModule.forRoot([AuthService, ProjectService]),
+    StoreModule.forRoot({
+      user: userReducer,
+      projects: projectsReducer,
+      tasks: tasksReducer,
+    }),
+    EffectsModule.forRoot([AuthService, ProjectService, TasksService]),
     FontAwesomeModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
@@ -60,7 +93,7 @@ import { BoardComponent } from './pages/board/board.component';
     }),
     BrowserAnimationsModule,
   ],
-  providers: [AuthService, ProjectService],
+  providers: [AuthService, ProjectService, TasksService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
