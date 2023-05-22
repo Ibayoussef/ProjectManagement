@@ -1,27 +1,48 @@
-# Projectmanagement
+# My Stack Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
+My Project Manager is a mini SaaS web application that allows users to manage projects and their tasks.
 
-## Development server
+# Backend Repo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Created with .NET Framework `https://github.com/Ibayoussef/ProjecManagerApi`
 
-## Code scaffolding
+# Thoughts
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## UI/UX
 
-## Build
+inspired by `https://www.behance.net/gallery/153992141/project-management-dashboard`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Dev
 
-## Running unit tests
+- used `ngrx` to make it easier for me to manage the app states.
+- used `scss` for styling
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Features
 
-## Running end-to-end tests
+- View a list of Projects
+- Search projects
+- Search, filter, and sort the list of tasks
+- View details of a task, including its title, description, priority,status, type and assignee
+- View kanban board and change tasks status
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## User Flow
 
-## Further help
+The following is a basic user flow for the My Project Manager application:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1.  Landing page: When the user first opens the application, they are taken to a landing page that displays a list of the projects, along with options to search and delete.
+
+2.  Tasks Page: The user can check all the tasks available with their infos, can also filter, search / create a new task.
+
+3.  Kanban Board page: The user can view a kanban board where he can change the status on his tasks of delete one.
+
+## Getting Started
+
+To run the application, you will need to have the following:
+
+- Node.js (version 12 or higher)
+
+To set up the application, follow these steps:
+
+1.  Clone the repository to your local machine.
+2.  Install the dependencies by running `npm install`.
+3.  Start the application by running `npm start`.
